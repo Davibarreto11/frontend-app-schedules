@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
+import PrivateUnsigned from './PrivateUnsigned';
 import PrivateSigned from './PrivateSigned';
 
 import Signin from '../pages/Signin';
@@ -17,7 +17,7 @@ function Router() {
         <Route path="/register" element={<Signup />} />
       </Route>
 
-      <Route element={<PrivateRoute />}>
+      <Route element={<PrivateUnsigned />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
       </Route>

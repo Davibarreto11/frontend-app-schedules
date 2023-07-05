@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-function PrivateSigned() {
+function RouteWrapper() {
   const signed = false;
 
   if (signed) {
@@ -11,4 +11,4 @@ function PrivateSigned() {
   return <Outlet />;
 }
 
-export default PrivateSigned;
+export default RouteWrapper;

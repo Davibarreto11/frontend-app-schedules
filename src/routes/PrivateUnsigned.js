@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 function PrivateRoute() {
   const signed = false;
@@ -8,9 +8,7 @@ function PrivateRoute() {
     return <Navigate to="/" replace />;
   }
 
-  if (signed) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  return <Outlet />;
 }
 
 export default PrivateRoute;
