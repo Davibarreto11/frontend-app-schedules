@@ -1,7 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import history from './services/history';
+import Routes from './routes';
 
 function App() {
-  return <h1>Hello Wolrd</h1>;
+  return (
+    <BrowserRouter history={history}>
+      <Routes />
+    </BrowserRouter>
+  );
 }
 
 export default App;
