@@ -1,7 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+
+import { singInRequest } from '../../store/modules/auth/actions';
 
 import AuthLayout from '../_layouts/auth';
 
@@ -17,8 +20,10 @@ const schema = Yup.object().shape({
 });
 
 function Signin() {
-  const handleSubmit = (data) => {
-    console.log(data);
+  const dispatch = useDispatch();
+
+  const handleSubmit = ({ email, password }) => {
+    dispatch(singInRequest(email, password));
   };
 
   return (
