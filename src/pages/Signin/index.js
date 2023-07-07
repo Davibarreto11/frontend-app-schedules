@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
@@ -21,9 +21,10 @@ const schema = Yup.object().shape({
 
 function Signin() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = ({ email, password }) => {
-    dispatch(singInRequest(email, password));
+    dispatch(singInRequest(email, password, navigate));
   };
 
   return (

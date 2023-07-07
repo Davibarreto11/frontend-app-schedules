@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-function RouteWrapper() {
-  const signed = false;
+import store from '../store';
 
+function RouteWrapper() {
+  const { signed } = store.getState().auth;
+  console.log(store.getState());
   if (signed) {
     return <Navigate to="/dashboard" replace />;
   }
