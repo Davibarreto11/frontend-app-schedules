@@ -12,6 +12,15 @@ export function signInSuccess(token, user) {
   };
 }
 
+export function signUpRequest(name, email, password, navigate) {
+  return {
+    type: '@auth/SIGI_UP_REQUEST',
+    payload: {
+      name, email, password, navigate,
+    },
+  };
+}
+
 export function signInFailure() {
   return {
     type: '@auth/SIGN_FAILURE',
