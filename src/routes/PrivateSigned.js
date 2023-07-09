@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-import store from '../store';
+import { store } from '../store';
 
 function RouteWrapper() {
   const { signed } = store.getState().auth;
