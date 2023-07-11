@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logo from '../../../assets/logo-purple.svg';
-import avatar from '../../../assets/avatar.jpg';
+import Notifications from '../Notifications';
+
+import logo from '../../assets/logo-purple.svg';
+import avatar from '../../assets/avatar.jpg';
 
 import { Container, Content, Profile } from './styles';
 
@@ -16,6 +18,8 @@ function Header() {
         </nav>
 
         <aside>
+          <Notifications />
+
           <Profile>
             <div>
               <strong>Davi Artur</strong>

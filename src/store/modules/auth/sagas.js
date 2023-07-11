@@ -20,9 +20,10 @@ export function* signIn({ payload }) {
 
     if (!user.provider) {
       toast.error('Usuário não é prestador');
+      return;
     }
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
 
@@ -59,9 +60,9 @@ export function setToken({ payload }) {
 
   const { token } = payload.auth;
 
-  if (token) {
-    api.defaults.headers.Authorization = `Bearer ${token}`;
-  }
+  if (!token) return;
+
+  api.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 export default all([
