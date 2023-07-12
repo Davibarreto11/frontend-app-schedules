@@ -60,9 +60,9 @@ export function setToken({ payload }) {
 
   const { token } = payload.auth;
 
-  if (!token) return;
-
-  api.defaults.headers.common.Authorization = `Bearer ${token}`;
+  if (token) {
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
+  }
 }
 
 export default all([
