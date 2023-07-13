@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 
+import { signOut } from '../../store/modules/auth/actions';
 import { updateProfileRequest } from '../../store/modules/user/actions';
 
 import AvatarInput from './AvatarInput';
@@ -11,11 +13,16 @@ import { Container } from './syles';
 import DefaultLayout from '../_layouts/default';
 
 function Profile() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.user.profile);
 
   const handleSubmit = (data) => {
     dispatch(updateProfileRequest(data));
+  };
+
+  const handleSignOut = () => {
+    dispatch(signOut(navigate));
   };
 
   return (
@@ -36,7 +43,7 @@ function Profile() {
           <button type="submit">Atualizar perfil</button>
         </Form>
 
-        <button type="button">Sair</button>
+        <button type="button" onClick={handleSignOut}>Sair</button>
       </Container>
     </DefaultLayout>
   );

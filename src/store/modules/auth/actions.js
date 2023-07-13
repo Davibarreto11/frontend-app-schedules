@@ -26,3 +26,10 @@ export function signInFailure() {
     type: '@auth/SIGN_FAILURE',
   };
 }
+
+export function signOut(navigate) {
+  return {
+    type: '@auth/SIGN_OUT',
+    payload: { navigate },
+  };
+}
